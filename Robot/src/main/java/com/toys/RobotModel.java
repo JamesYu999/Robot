@@ -63,7 +63,7 @@ public class RobotModel {
 
 	@Override
 	public String toString() {
-		return "Current position: [xpos = " + xpos + ", ypos = " + ypos + ", facing = " + getFacingDesc() + ", isPlaced = " + isPlaced + "]";
+		return "Current position: [xpos = " + xpos + ", ypos = " + ypos + ", facing = " + getFacingDesc() + "]";
 	}
 	
 	private String getFacingDesc() {
