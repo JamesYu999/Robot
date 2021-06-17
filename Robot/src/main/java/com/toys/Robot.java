@@ -12,10 +12,10 @@ public class Robot {
 
 
 	private static final String PLACE = "PLACE";
-	private static final int xBoundary = 5;
-	private static final int yBoundary = 5;
+	private static final int xBoundary = 4;
+	private static final int yBoundary = 4;
 	
-	private static final String COMMAND_PLACE = "PLACE\\s[|1|2|3|4|5],[1|2|3|4|5],(NORTH|SOUTH|EAST|WEST)";
+	private static final String COMMAND_PLACE = "PLACE\\s[0|1|2|3|4],[0|1|2|3|4],(NORTH|SOUTH|EAST|WEST)";
 	private static final String COMMAND_MOVE = "MOVE";
 	private static final String COMMAND_LEFT = "LEFT";
 	private static final String COMMAND_RIGHT = "RIGHT";
@@ -144,13 +144,13 @@ public class Robot {
 				System.out.println(ResourceUtil.getMessage("OUT_Of_X_BOUNDARY"));
 			}
 		} else if (robotModel.getFacingNumber() == 2) {
-			if (robotModel.getYpos() > 1) {
+			if (robotModel.getYpos() > 0) {
 				robotModel.setYpos(robotModel.getYpos() - 1);
 			} else {
 				System.out.println(ResourceUtil.getMessage("OUT_Of_Y_BOUNDARY"));
 			}
 		} else {
-			if (robotModel.getXpos() > 1) {
+			if (robotModel.getXpos() > 0) {
 				robotModel.setXpos(robotModel.getXpos() - 1);
 			} else {
 				System.out.println(ResourceUtil.getMessage("OUT_Of_X_BOUNDARY"));
