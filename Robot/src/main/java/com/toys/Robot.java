@@ -1,9 +1,7 @@
 package com.toys;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +19,7 @@ public class Robot {
 	private static final String COMMAND_RIGHT = "RIGHT";
 	private static final String COMMAND_REPORT = "REPORT";
 	private static final String COMMAND_HELP = "help";
+	private static final String COMMAND_QUIT = "q";
 	
 	private static final String VALID_COMMAND = "(" + COMMAND_HELP + "|" + COMMAND_MOVE + "|" + COMMAND_LEFT + "|" 
 			+ COMMAND_RIGHT + "|" + COMMAND_REPORT + "|" + COMMAND_PLACE + ")";
@@ -59,23 +58,23 @@ public class Robot {
 	public static void main(String[] args) {
 		
 		Robot robot = new Robot();
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		Scanner scanner = new Scanner(System.in);
         System.out.println(ResourceUtil.getMessage("PLEASE_ENTER_COMMAND_"));
         System.out.println(ResourceUtil.getMessage("HELP_FOR_HELP"));
-        
-        while (true) {
+        System.out.println(ResourceUtil.getMessage("Q_TO_QUIT"));
+        String input = "";
+        while (!COMMAND_QUIT.equalsIgnoreCase(input)) {
         	
-        	try {
-				String s = br.readLine();
-				if (s != null && !s.trim().equals("")) {
-					robot.process(s.trim());
-				}
-				
-			} catch (IOException e) {
-				e.printStackTrace();
+    		input = scanner.nextLine();
+    		
+			if (input != null && !input.trim().equals("") && !input.equalsIgnoreCase(COMMAND_QUIT)) {
+				robot.process(input.trim());
 			}
+			
         }
+        System.out.println(ResourceUtil.getMessage("BYE"));
+        scanner.close();
 	}
 	
 	public void process(String command) {

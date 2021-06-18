@@ -11,8 +11,8 @@ public class RobotModel {
 	public static final String WEST = "WEST";
 	public static List<String> directions = Arrays.asList(NORTH, EAST, SOUTH, WEST);
 	
-	private int xpos = 1;
-	private int ypos = 1;
+	private int xpos = 0;
+	private int ypos = 0;
 	private int facing = 0;
 	private boolean isPlaced = false;
 	
